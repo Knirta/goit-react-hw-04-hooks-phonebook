@@ -14,9 +14,11 @@ const App = () => {
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ];
 
-  const [contacts, setContacts] = useState(
-    JSON.parse(window.localStorage.getItem("contacts")) ?? defaultContacts
-  );
+  const [contacts, setContacts] = useState(() => {
+    return (
+      JSON.parse(window.localStorage.getItem("contacts")) ?? defaultContacts
+    );
+  });
 
   const [filter, setFilter] = useState("");
 
